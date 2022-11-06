@@ -8,7 +8,7 @@ terraform apply --var-file inputs.tfvars
 ```
 
 ## Architecture Diagram
-![alt text](https://raw.githubusercontent.com/lkravi/eks_blueprints/main/static/eks-bp.png)
+![alt text](https://github.com/lkravi/eks_blueprints/blob/main/static/eks_bp.png)
 
 ### Access CLuster
 Run update-kubeconfig command:
