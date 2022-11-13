@@ -61,7 +61,7 @@ module "eks_blueprints" {
 resource "time_sleep" "wait_for_cluster" {
   depends_on = [module.eks_blueprints]
 
-  create_duration = "120s"
+  create_duration = "180s"
 
   triggers = {
     "always_run" = timestamp()
