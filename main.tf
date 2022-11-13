@@ -25,6 +25,36 @@ module "eks_blueprints" {
       subnet_ids      = module.vpc.private_subnets
     }
   }
+
+  #region Teams
+  platform_teams = {
+    admin = {
+      users = [data.aws_caller_identity.current.arn]
+    }
+  }
+
+  application_teams = {
+    team-blue-dev = {
+      "labels" = {
+        "appName"     = "blue-team-app",
+        "projectName" = "project-blue",
+        "environment" = "dev"
+      }
+      "quota" = {
+        "requests.cpu"    = "1000m",
+        "requests.memory" = "4Gi",
+        "limits.cpu"      = "2000m",
+        "limits.memory"   = "8Gi",
+        "pods"            = "10",
+        "secrets"         = "10",
+        "services"        = "10"
+      }
+
+      #manifests_dir = "./manifests-team-blue"
+      users         = [data.aws_caller_identity.current.arn]
+    }
+  }
+  #endregion Team
 }
 #endregion
 
